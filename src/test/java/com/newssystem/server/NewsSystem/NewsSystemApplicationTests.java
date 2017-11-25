@@ -63,7 +63,8 @@ public class NewsSystemApplicationTests {
         // odpowiedz nie może być pusta
         assertNotNull(apiResponse);
 
-        // sprawdzenie poprawności danych
+        // sprawdzenie poprawności wysłania danych
+        // wykorzystujemy apiResponse do pobrania widomosci
 
         String message = apiResponse.get("message").toString();
         assertEquals("News created successfully", message);
@@ -76,7 +77,7 @@ public class NewsSystemApplicationTests {
         assertEquals("Przykladowy tytul",news.getTitle());
         assertEquals("Opis wydarzenia",news.getText());
         assertEquals("22.11.2017",news.getData());
-        assertEquals("Jan Kowalski1",news.getAuthor());
+        assertEquals("Jan Kowalski",news.getAuthor());
 
 
     }

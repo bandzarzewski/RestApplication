@@ -5,14 +5,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.annotation.Generated;
 import javax.persistence.GeneratedValue;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-@Document 
+@Document
 public class Comment {
     @Id
     private String id;
-
+    @NotNull(message = "Brak NewsId")
     private String NewsId;
+    @NotNull
+    @Size(min = 10, max = 1000)
     private String comment;
+    @NotNull
+    @Size(min = 1)
     private String author;
     private String data;
 

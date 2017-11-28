@@ -7,6 +7,9 @@ import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.constraints.NegativeOrZero;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Document
 public class News {
@@ -15,9 +18,17 @@ public class News {
 //    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
+    @NotNull(message = "Pole nie może być putse")
+    @Size(min = 5, max = 40)
     private String title;
+
+    @NotNull
+    @Size(min = 10)
     private String text;
     private String data;
+
+    @NotNull
+    @Size(min = 1)
     private String author;
 
     public News() {
